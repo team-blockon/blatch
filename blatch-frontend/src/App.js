@@ -5,7 +5,7 @@ import AppTemplate from 'components/base/AppTemplate';
 import PrivateRoute from 'components/common/PrivateRoute';
 import DevTools from 'mobx-react-devtools';
 
-import { Auth, Wallet, Counter } from 'pages';
+import { Record, Auth, Wallet, Counter } from 'pages';
 
 @inject(stores => ({
   loadWallet: stores.wallet.loadWallet
@@ -22,6 +22,7 @@ class App extends Component {
   render() {
     return (
       <AppTemplate>
+        <Route path="/" component={Record} />
         <Route path="/auth" component={Auth} />
         <Route path="/wallet" component={Wallet} />
         <PrivateRoute path="/counter" component={Counter} />

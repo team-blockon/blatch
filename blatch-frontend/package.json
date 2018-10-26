@@ -59,10 +59,13 @@
     "webpack-manifest-plugin": "2.0.4",
     "workbox-webpack-plugin": "3.6.2"
   },
+  "main": "src/electron-starter.js",
   "scripts": {
-    "start": "node scripts/start.js",
+    "react-start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "test": "node scripts/test.js",
+    "electron": "electron .",
+    "start": "nf start"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -74,6 +77,8 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "electron": "^3.0.6",
+    "foreman": "^3.0.1",
     "mobx-react-devtools": "^6.0.3",
     "prettier-eslint": "^8.8.2"
   },
