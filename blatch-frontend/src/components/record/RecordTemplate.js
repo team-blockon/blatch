@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Logo from 'static/images/logo.svg';
 
 const RecordTemplate = () => {

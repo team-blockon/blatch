@@ -1,0 +1,47 @@
+.personalInfoContainer {
+  display: grid;
+  grid-template-columns: 530px 1fr;
+}
+
+.infoSummaryContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.infoSummary {
+  background-color: #363d50;
+  color: white;
+  height: 150px;
+  border-bottom: 2px solid;
+  border-color: #2f3545;
+
+  &:last-child {
+    border-bottom: 0px;
+  }
+}
+
+.infoDetailContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background: #2f3545;
+  color: white;
+}
+
+.infoDetail {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.infoDetail_type {
+}
+
+.infoDetail_value {
+  width: 440px;
+  background-color: #363d50;
+  height: 42px;
+  border-radius: 9px;
+  border: solid 1px #e4e4e4;
+}
