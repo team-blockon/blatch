@@ -6,17 +6,32 @@
 .infoSummaryContainer {
   display: flex;
   flex-direction: column;
+  height: 100%;
+  &:last-child {
+    border-bottom: 0px;
+  }
+}
+
+.infoSummaryHeader_date {
+  font-size: 32px;
 }
 
 .infoSummary {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   background-color: #363d50;
   color: white;
   height: 150px;
   border-bottom: 2px solid;
   border-color: #2f3545;
 
-  &:last-child {
-    border-bottom: 0px;
+  &:active {
+    background-color: #2f3545;
+  }
+
+  text {
+    margin: 5px 50px;
   }
 }
 
@@ -27,15 +42,21 @@
   align-items: center;
   background: #2f3545;
   color: white;
+  margin: 50px 0;
+
+  button {
+    margin-top: 40px;
+  }
 }
 
 .infoDetail {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  margin: 25px 0;
 }
 
 .infoDetail_type {
+  margin-bottom: 15px;
 }
 
 .infoDetail_value {
