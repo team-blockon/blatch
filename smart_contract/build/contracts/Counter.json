@@ -49,14 +49,14 @@
       "type": "function"
     }
   ],
-  "bytecode": "0x608060405234801561001057600080fd5b50336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506000600181905550610217806100686000396000f300608060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806306661abd1461006757806314434fa51461009257806318b0c3fd146100a9578063d826f88f146100c0575b600080fd5b34801561007357600080fd5b5061007c6100d7565b6040518082815260200191505060405180910390f35b34801561009e57600080fd5b506100a76100dd565b005b3480156100b557600080fd5b506100be6100ea565b005b3480156100cc57600080fd5b506100d56100f7565b005b60015481565b6001805403600181905550565b6001805401600181905550565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415156101e1576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260228152602001807f4f6e6c79206f776e65722063616e2063616c6c20746869732066756e6374696f81526020017f6e2e00000000000000000000000000000000000000000000000000000000000081525060400191505060405180910390fd5b60006001819055505600a165627a7a72305820d990ee228c707817def57a2a0b0c990f0f445c8df64f6b34d4aa527c8b7beb3b0029",
-  "deployedBytecode": "0x608060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806306661abd1461006757806314434fa51461009257806318b0c3fd146100a9578063d826f88f146100c0575b600080fd5b34801561007357600080fd5b5061007c6100d7565b6040518082815260200191505060405180910390f35b34801561009e57600080fd5b506100a76100dd565b005b3480156100b557600080fd5b506100be6100ea565b005b3480156100cc57600080fd5b506100d56100f7565b005b60015481565b6001805403600181905550565b6001805401600181905550565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415156101e1576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260228152602001807f4f6e6c79206f776e65722063616e2063616c6c20746869732066756e6374696f81526020017f6e2e00000000000000000000000000000000000000000000000000000000000081525060400191505060405180910390fd5b60006001819055505600a165627a7a72305820d990ee228c707817def57a2a0b0c990f0f445c8df64f6b34d4aa527c8b7beb3b0029",
+  "bytecode": "0x608060405234801561001057600080fd5b50336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506000600181905550610217806100686000396000f300608060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806306661abd1461006757806314434fa51461009257806318b0c3fd146100a9578063d826f88f146100c0575b600080fd5b34801561007357600080fd5b5061007c6100d7565b6040518082815260200191505060405180910390f35b34801561009e57600080fd5b506100a76100dd565b005b3480156100b557600080fd5b506100be6100ea565b005b3480156100cc57600080fd5b506100d56100f7565b005b60015481565b6001805403600181905550565b6001805401600181905550565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415156101e1576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260228152602001807f4f6e6c79206f776e65722063616e2063616c6c20746869732066756e6374696f81526020017f6e2e00000000000000000000000000000000000000000000000000000000000081525060400191505060405180910390fd5b60006001819055505600a165627a7a7230582044cf05e8a5928cfcb50eb5dcadfadfb074d383d9d567bc85bcb8362220eac9cb0029",
+  "deployedBytecode": "0x608060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806306661abd1461006757806314434fa51461009257806318b0c3fd146100a9578063d826f88f146100c0575b600080fd5b34801561007357600080fd5b5061007c6100d7565b6040518082815260200191505060405180910390f35b34801561009e57600080fd5b506100a76100dd565b005b3480156100b557600080fd5b506100be6100ea565b005b3480156100cc57600080fd5b506100d56100f7565b005b60015481565b6001805403600181905550565b6001805401600181905550565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415156101e1576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260228152602001807f4f6e6c79206f776e65722063616e2063616c6c20746869732066756e6374696f81526020017f6e2e00000000000000000000000000000000000000000000000000000000000081525060400191505060405180910390fd5b60006001819055505600a165627a7a7230582044cf05e8a5928cfcb50eb5dcadfadfb074d383d9d567bc85bcb8362220eac9cb0029",
   "sourceMap": "26:465:1:-;;;100:75;8:9:-1;5:2;;;30:1;27;20:12;5:2;100:75:1;139:10;131:5;;:18;;;;;;;;;;;;;;;;;;167:1;159:5;:9;;;;26:465;;;;;;",
   "deployedSourceMap": "26:465:1:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;76:17;;8:9:-1;5:2;;;30:1;27;20:12;5:2;76:17:1;;;;;;;;;;;;;;;;;;;;;;;365:58;;8:9:-1;5:2;;;30:1;27;20:12;5:2;365:58:1;;;;;;302:57;;8:9:-1;5:2;;;30:1;27;20:12;5:2;302:57:1;;;;;;429:60;;8:9:-1;5:2;;;30:1;27;20:12;5:2;429:60:1;;;;;;76:17;;;;:::o;365:58::-;415:1;407:5;;:9;399:5;:17;;;;365:58::o;302:57::-;351:1;343:5;;:9;335:5;:17;;;;302:57::o;429:60::-;234:5;;;;;;;;;;;220:19;;:10;:19;;;212:66;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;481:1;473:5;:9;;;;429:60::o",
   "source": "pragma solidity ^0.4.24;\n\ncontract Counter {\n    address private owner;\n    uint public count;\n\n    constructor() public {\n        owner = msg.sender;\n        count = 0;\n    }\n\n    modifier onlyOwner() {\n        require(msg.sender == owner, \"Only owner can call this function.\");\n        _;\n    }\n\n    function plus() public {\n        count = count + 1;\n    }\n\n    function minus() public {\n        count = count - 1;\n    }\n\n    function reset() public onlyOwner {\n        count = 0;\n    }\n}",
-  "sourcePath": "/mnt/c/Users/zer01ne/Desktop/01/web/blatch/blatch/smart_contract/contracts/Counter.sol",
+  "sourcePath": "/Users/jun097kim/development/klaytn-workspace/blatch/smart_contract/contracts/Counter.sol",
   "ast": {
-    "absolutePath": "/mnt/c/Users/zer01ne/Desktop/01/web/blatch/blatch/smart_contract/contracts/Counter.sol",
+    "absolutePath": "/Users/jun097kim/development/klaytn-workspace/blatch/smart_contract/contracts/Counter.sol",
     "exportedSymbols": {
       "Counter": [
         133
@@ -178,7 +178,7 @@
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 276,
+                        "referencedDeclaration": 205,
                         "src": "139:3:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
@@ -318,7 +318,7 @@
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 276,
+                            "referencedDeclaration": 205,
                             "src": "220:3:1",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
@@ -394,10 +394,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        279,
-                        280
+                        208,
+                        209
                       ],
-                      "referencedDeclaration": 280,
+                      "referencedDeclaration": 209,
                       "src": "212:7:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -792,7 +792,7 @@
     "src": "0:491:1"
   },
   "legacyAST": {
-    "absolutePath": "/mnt/c/Users/zer01ne/Desktop/01/web/blatch/blatch/smart_contract/contracts/Counter.sol",
+    "absolutePath": "/Users/jun097kim/development/klaytn-workspace/blatch/smart_contract/contracts/Counter.sol",
     "exportedSymbols": {
       "Counter": [
         133
@@ -914,7 +914,7 @@
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 276,
+                        "referencedDeclaration": 205,
                         "src": "139:3:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
@@ -1054,7 +1054,7 @@
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 276,
+                            "referencedDeclaration": 205,
                             "src": "220:3:1",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
@@ -1130,10 +1130,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        279,
-                        280
+                        208,
+                        209
                       ],
-                      "referencedDeclaration": 280,
+                      "referencedDeclaration": 209,
                       "src": "212:7:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -1535,10 +1535,10 @@
     "1000": {
       "events": {},
       "links": {},
-      "address": "0xc9a2ac818eaabb33d8932e9d410dc6f8a312006c",
-      "transactionHash": "0x05917a4995477e39f48c357ed4c1e00a2d2056b487aa2bed73d0b1fce25c1da0"
+      "address": "0xe61f77c5ae7332ba9a9b7ea951347315bc45a7a0",
+      "transactionHash": "0x71bb8010347e05b6dedabbd8e036e27e52b8c3f417238c8531cc29479a14d9ed"
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-10-27T01:59:45.813Z"
+  "updatedAt": "2018-10-27T02:35:27.522Z"
 }
