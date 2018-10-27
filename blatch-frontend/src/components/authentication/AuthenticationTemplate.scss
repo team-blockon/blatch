@@ -1,0 +1,47 @@
+.authenticationContainerSizer {
+  width: 1280px;
+  height: 800px;
+  padding: 190px 470px;
+}
+
+.authenticationContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.authenticationIcon {
+  width: 70px;
+  margin-bottom: 35px;
+}
+
+.authenticationTitle {
+  font-size: 35px;
+  text-align: left;
+  color: #e4e4e4;
+  margin-bottom: 15px;
+}
+
+.authenticationSubtitle {
+  font-size: 16px;
+  color: #e4e4e4;
+  margin-bottom: 35px;
+}
+
+.authInput {
+  width: 340px;
+  height: 42px;
+  border-radius: 9px;
+  border: solid 2px rgba(228, 228, 228, 0.62);
+  background-color: #363d50;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 42px;
+  font-size: 18px;
+  color: #e4e4e4;
+  margin-bottom: 30px;
+
+  &::placeholder {
+    color: #e4e4e4;
+  }
+}
