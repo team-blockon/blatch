@@ -1,0 +1,58 @@
+.agreementContainerSizer {
+  background-color: #2f3545;
+  width: 1280px;
+  height: 800px;
+  padding: 125px 345px;
+}
+
+.agreementContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.agreementHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #e4e4e4;
+  margin-bottom: 30px;
+  .agreementHeader-title {
+    font-size: 35px;
+  }
+}
+
+.agreementBody {
+  width: 590px;
+  opacity: 0.6;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.18);
+  background-color: #363d50;
+  padding: 40px 50px;
+}
+
+.agreementBody-detail {
+  font-size: 16px;
+  width: 490px;
+  color: #e4e4e4;
+}
+
+.checkBoxContainers {
+  display: flex;
+}
+
+.checkBoxContainer {
+  display: flex;
+  margin-top: 30px;
+  margin-right: 55px;
+  .checkBox-type {
+    margin-left: 15px;
+    color: white;
+  }
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 45px 0;
+}
