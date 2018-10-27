@@ -47,12 +47,12 @@ const RecordTemplate = () => {
             <div className="recordDashBoard-title">
               <text>Record</text>
             </div>
-            <SmallVideo location="수술실" isActive />
+            <SmallVideo location={'수술실'} isActive />
           </div>
           <MainVideo />
-          <SmallVideo location="외상수술실" />
-          <SmallVideo location="외래수술실" />
-          <SmallVideo location="통원수술실" />
+          <SmallVideo location={'외상수술실'} />
+          <SmallVideo location={'외래수술실'} />
+          <SmallVideo location={'통원수술실'} />
         </div>
       </div>
     </div>

@@ -67,9 +67,14 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 12px 18px;
     opacity: 0.2;
     background-color: #000000;
+    div {
+      font-size: 10px;
+      color: #e4e4e4;
+    }
   }
   video {
     height: 270px;
