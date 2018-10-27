@@ -53,9 +53,17 @@ class SearchResult extends Component {
 }
 
 class SearchTemplate extends Component {
-  state = {
-    patientList: []
-  };
+
+    constructor(props){
+        super(props);
+        this.state = {
+            patientList: [],
+            inputValue:'',
+            searchedPatient: []
+        };
+        this.handleChange = this.handleChange.bind(this);
+        this.keyPress = this.keyPress.bind(this);
+    }
 
   componentDidMount() {
     EmrAPI.getEmr().then(res => {
@@ -65,8 +73,26 @@ class SearchTemplate extends Component {
     });
   }
 
+  handleChange(e) {
+      this.setState({ inputValue: e.target.value})
+  }
+
+  keyPress(e){
+      if(e.keyCode === 13){
+          console.log("name is " + e.target.value);
+          console.log("input value : " + this.state.inputValue);
+          this.setState({ searchedPatient: this.state.patientList.filter((patient) => {
+              return (patient.name === this.state.inputValue) || (patient.birth === this.state.inputValue)
+            })
+          });
+          //console.log('enter key pressed');
+      }
+  }
+
   render() {
     const { patientList } = this.state;
+    const { searchedPatient } = this.state;
+    const { inputValue } = this.state;
 
     return (
       <div className="searchContainer">
@@ -77,11 +103,14 @@ class SearchTemplate extends Component {
             className="searchBar"
             type={'text'}
             placeholder={'Record search by name, birth'}
+            value={inputValue}
+            onKeyDown={this.keyPress}
+            onChange={this.handleChange}
           />
         </div>
         <div className="searchResultContainer">
           <SearchResultHeader />
-          {patientList.map((patient, index) => {
+          {searchedPatient.map((patient, index) => {
             return <SearchResult data={patient} index={index} key={index} />;
           })}
         </div>
