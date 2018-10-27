@@ -77,7 +77,7 @@ class PersonalInfoTemplate extends Component {
   };
 
   handleNext = () => {
-    this.props.history.push('/');
+    this.props.history.push('/agreement');
   };
 
   componentDidMount() {

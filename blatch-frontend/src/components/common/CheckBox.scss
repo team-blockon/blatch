@@ -5,7 +5,8 @@
   background-color: #545e7a;
   color: #2f3545;
   border: 0px solid;
-  &:active {
+  cursor: pointer;
+  &.active {
     background-color: #4b9cd2;
   }
 }
