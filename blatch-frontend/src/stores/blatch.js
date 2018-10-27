@@ -5,6 +5,8 @@ export default class BlatchStore {
   patient = null;
   @observable
   isAgree = false;
+  @observable
+  videoBlob = null;
 
   @action
   setPatient = patient => {
@@ -17,8 +19,14 @@ export default class BlatchStore {
   };
 
   @action
+  setVideoBlob = blob => {
+    this.videoBlob = blob;
+  };
+
+  @action
   initialize = () => {
     this.patient = null;
     this.isAgree = false;
+    this.videoBlob = null;
   };
 }

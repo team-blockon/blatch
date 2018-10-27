@@ -74,10 +74,11 @@ class RecordTemplate extends Component {
   stopRecord() {
     if (!this.recordVideo) return;
     const { loading } = this.props;
-    const { patient } = this.props.blatch;
+    const { setVideoBlob } = this.props.blatch;
 
     this.recordVideo.stopRecording(() => {
       const blob = this.recordVideo.getBlob();
+      setVideoBlob(blob);
 
       // convert BLOB to base64
       const reader = new FileReader();

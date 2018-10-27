@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import Button from 'components/common/Button';
+import { inject } from 'mobx-react';
 import * as EmrAPI from 'lib/api/emr';
 import CloseButton from 'components/common/CloseButton';
 import './CheckTemplate.scss';
@@ -15,10 +15,11 @@ const CheckHeader = ({ isVerified }) => {
   );
 };
 
-const CheckVideo = () => {
+const CheckVideo = ({ blob }) => {
+  const url = window.URL.createObjectURL(blob);
   return (
     <div className="checkVideoContainer">
-      <video>비디오</video>
+      <video src={url} width="100%" autoPlay controls />
     </div>
   );
 };
@@ -137,6 +138,7 @@ const MedicalCheckup = ({ data }) => {
 };
 
 @withRouter
+@inject('blatch')
 class CheckTemplate extends Component {
   state = {
     activePatient: []
@@ -158,6 +160,7 @@ class CheckTemplate extends Component {
 
   render() {
     const { activePatient } = this.state;
+    const { videoBlob } = this.props.blatch;
 
     return (
       <div className="checkContainer">
@@ -165,16 +168,13 @@ class CheckTemplate extends Component {
         <CheckHeader isVerified />
         <div className="checkBody">
           <div className="checkBody-column">
-            <CheckVideo />
+            {!!videoBlob && <CheckVideo blob={videoBlob} />}
             {!!activePatient && <PatientInfoSummary data={activePatient} />}
           </div>
           <div className="checkBody-column">
             <DiseaseDetail data={dummyDisease} />
             <MedicalCheckup data={dummyCheckup} />
           </div>
-        </div>
-        <div className="buttonContainer">
-          <Button value={'Download'} />
         </div>
       </div>
     );
