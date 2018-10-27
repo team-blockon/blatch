@@ -49,8 +49,17 @@ label[for="file"] {
 
 label[for="file"] {
   cursor: pointer;
+  display: inline-block;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .authInput[type="file"] {
   display: none;
+}
+
+.keystore {
+  color: #fff;
+  text-align: center;
 }

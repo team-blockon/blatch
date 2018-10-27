@@ -1,11 +1,8 @@
 import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
-import { inject } from 'mobx-react';
-import AuthTemplate from 'components/auth/AuthTemplate';
+import AuthenticationTemplate from 'components/authentication/AuthenticationTemplate';
 
-const Auth = inject('wallet')(({ wallet }) => {
-  if (!!wallet.walletInstance) return <Redirect to="/counter" />;
-  return <Route path="/auth/login" component={AuthTemplate} />;
-});
+const Auth = () => {
+  return <AuthenticationTemplate />;
+};
 
 export default Auth;

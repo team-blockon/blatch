@@ -13,7 +13,6 @@ import {
   Agreement,
   Search,
   Check,
-  Authentication,
   Loading
 } from 'pages';
 
@@ -34,13 +33,12 @@ class App extends Component {
     return (
       <AppTemplate>
         <Route exact path="/" component={Record} />
-        <Route path="/auth" component={Auth} />
         <Route path="/wallet" component={Wallet} />
         <Route path="/personal-info" component={PersonalInfo} />
         <Route path="/agreement" component={Agreement} />
         <Route path="/search" component={Search} />
         <Route path="/check" component={Check} />
-        <Route path="/authentication" component={Authentication} />
+        <Route path="/authentication" component={Auth} />
         <Route path="/loading" component={Loading} />
         <PrivateRoute path="/counter" component={Counter} />
       </AppTemplate>
