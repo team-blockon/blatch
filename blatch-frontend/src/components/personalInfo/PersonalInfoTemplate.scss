@@ -1,22 +1,37 @@
 .personalInfoContainer {
   display: grid;
-  grid-template-columns: 530px 1fr;
+  grid-template-columns: 530px 750px;
 }
 
 .infoSummaryContainer {
   display: flex;
   flex-direction: column;
+  height: 100%;
+  &:last-child {
+    border-bottom: 0px;
+  }
+}
+
+.infoSummaryHeader_date {
+  font-size: 32px;
 }
 
 .infoSummary {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   background-color: #363d50;
   color: white;
   height: 150px;
   border-bottom: 2px solid;
   border-color: #2f3545;
 
-  &:last-child {
-    border-bottom: 0px;
+  &:active {
+    background-color: #2f3545;
+  }
+
+  text {
+    margin: 5px 50px;
   }
 }
 
@@ -27,15 +42,24 @@
   align-items: center;
   background: #2f3545;
   color: white;
+  padding: 80px 0;
+  height: 800px;
+  width: 750px;
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  button {
+    margin-top: 40px;
+  }
 }
 
 .infoDetail {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
 }
 
 .infoDetail_type {
+  margin-bottom: 15px;
 }
 
 .infoDetail_value {

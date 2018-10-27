@@ -11,12 +11,56 @@ const InfoDetail = ({ type, value }) => {
   );
 };
 
-const RecordTemplate = () => {
+const InfoSummaryHeader = ({ data }) => {
+  return (
+    <div className="infoSummary infoSummaryHeader">
+      <span>메뉴마크</span>
+      <text className="infoSummaryHeader_date">{data.date}</text>
+      <text className="infoSummaryHeader_hospital">{data.hospital}</text>
+    </div>
+  );
+};
+
+const InfoSummary = ({ summaryData }) => {
+  return (
+    <div className="infoSummary">
+      <text>{summaryData.surgeryNumber}</text>
+      <text>
+        {summaryData.patientName}({summaryData.patientBirth})
+      </text>
+      <text>
+        REH/
+        {summaryData.surgeonName}
+      </text>
+    </div>
+  );
+};
+
+const dummySummaryHeader = {
+  date: 'Sunday, 28 Oct',
+  hospital: 'Ajou University Hospital'
+};
+
+const dummySummary = {
+  surgeryNumber: 28695847,
+  patientName: '김민영',
+  patientBirth: '91.07.05',
+  surgeonName: '김상준'
+};
+
+const PersonalInfoTemplate = () => {
   return (
     <div className="personalInfoContainer">
       <div className="infoSummaryContainer">
-        <div className="infoSummary">info</div>
-        <div className="infoSummary">info</div>
+        <InfoSummaryHeader data={dummySummaryHeader} />
+        <InfoSummary summaryData={dummySummary} />
+        <InfoSummary summaryData={dummySummary} />
+        <InfoSummary summaryData={dummySummary} />
+        <InfoSummary summaryData={dummySummary} />
+        <InfoSummary summaryData={dummySummary} />
+        <InfoSummary summaryData={dummySummary} />
+        <InfoSummary summaryData={dummySummary} />
+        <InfoSummary summaryData={dummySummary} />
       </div>
       <div className="infoDetailContainer">
         <InfoDetail
@@ -36,7 +80,7 @@ const RecordTemplate = () => {
         />
         <InfoDetail
           className="infoDetail"
-          type={'Surgery'}
+          type={'Surgery Date'}
           value={'Some value'}
         />
         <Button value={'Next'} />
@@ -45,4 +89,4 @@ const RecordTemplate = () => {
   );
 };
 
-export default RecordTemplate;
+export default PersonalInfoTemplate;
