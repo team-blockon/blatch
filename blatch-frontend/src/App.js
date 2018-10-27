@@ -13,7 +13,8 @@ import {
   PersonalInfo,
   Agreement,
   Search,
-  Check
+  Check,
+  Authentication
 } from 'pages';
 
 @inject(stores => ({
@@ -38,6 +39,7 @@ class App extends Component {
         <Route path="/agreement" component={Agreement} />
         <Route path="/search" component={Search} />
         <Route path="/check" component={Check} />
+        <Route path="/authentication" component={Authentication} />
         <PrivateRoute path="/counter" component={Counter} />
         {process.env.NODE_ENV === 'development' && <DevTools />}
       </AppTemplate>
