@@ -1,0 +1,88 @@
+.recordContainer {
+}
+
+.sideBar {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 200px;
+  height: 100%;
+  background-color: #363d50;
+}
+
+.sideBar-logo {
+  padding: 36px 46px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    width: 108px;
+  }
+}
+
+.sideBar-menuContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.sideBar-menu {
+  color: #e4e4e4;
+  padding: 14px;
+  padding-left: 46px;
+  text {
+    font-size: 18px;
+  }
+}
+
+.recordDashBoardSizer {
+  background-color: #2f3545;
+  padding: 60px 40px;
+  position: fixed;
+  width: 1080px;
+  left: 200px;
+  top: 0px;
+}
+
+.recordDashBoard {
+  display: grid;
+  grid-auto-rows: 365px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 35px;
+}
+
+.boardWithTitle {
+  .recordDashBoard-title {
+    height: 55px;
+    color: #e4e4e4;
+    font-size: 20px;
+  }
+}
+
+.videoContainer {
+  width: 100%;
+  height: 310px;
+
+  .videoHeader {
+    height: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 18px;
+    opacity: 0.2;
+    background-color: #000000;
+  }
+  video {
+    height: 270px;
+    width: 100%;
+    background-color: #363d50;
+  }
+}
+
+.mainVideoContainer {
+  grid-column-end: span 2;
+  video {
+    width: 100%;
+    height: 100%;
+    background-color: #363d50;
+  }
+}

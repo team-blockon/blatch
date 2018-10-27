@@ -1,6 +1,6 @@
 .personalInfoContainer {
   display: grid;
-  grid-template-columns: 530px 1fr;
+  grid-template-columns: 530px 750px;
 }
 
 .infoSummaryContainer {
@@ -42,8 +42,12 @@
   align-items: center;
   background: #2f3545;
   color: white;
-  margin: 50px 0;
-
+  padding: 80px 0;
+  height: 800px;
+  width: 750px;
+  position: fixed;
+  top: 0px;
+  right: 0px;
   button {
     margin-top: 40px;
   }
@@ -52,7 +56,6 @@
 .infoDetail {
   display: flex;
   flex-direction: column;
-  margin: 25px 0;
 }
 
 .infoDetail_type {

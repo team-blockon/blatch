@@ -56,6 +56,11 @@ const PersonalInfoTemplate = () => {
         <InfoSummary summaryData={dummySummary} />
         <InfoSummary summaryData={dummySummary} />
         <InfoSummary summaryData={dummySummary} />
+        <InfoSummary summaryData={dummySummary} />
+        <InfoSummary summaryData={dummySummary} />
+        <InfoSummary summaryData={dummySummary} />
+        <InfoSummary summaryData={dummySummary} />
+        <InfoSummary summaryData={dummySummary} />
       </div>
       <div className="infoDetailContainer">
         <InfoDetail
