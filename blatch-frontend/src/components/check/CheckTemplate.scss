@@ -1,0 +1,110 @@
+.checkContainer {
+  width: 1280px;
+  height: 800px;
+  background-color: #2f3545;
+  padding: 100px 180px;
+  display: flex;
+  flex-direction: column;
+}
+
+.checkHeaderContainer {
+  padding: 30px 0;
+}
+
+.verification {
+  width: 130px;
+  height: 37px;
+  border: solid 2px #4b9cd2;
+  color: #4b9cd2;
+  font-size: 24px;
+  padding: 3px 25px;
+}
+
+.checkBody {
+  display: grid;
+  grid-template-rows: 500px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.checkBody-column {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr;
+}
+
+.checkVideoContainer {
+  width: 90%;
+  height: 100%;
+  opacity: 0.6;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.18);
+  background-color: #363d50;
+}
+
+.patientInfoSummaryContainer {
+  width: 90%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  text {
+    font-size: 16px;
+    color: #e4e4e4;
+    text-align: left;
+    margin: 5px;
+  }
+}
+
+.checkBodyColumnComponent {
+  display: flex;
+  flex-direction: column;
+}
+
+.checkBodyColumnTitleContainer {
+  border-bottom: solid 1px #e6e8f4;
+  text {
+    font-size: 21px;
+    text-align: left;
+    color: #e4e4e4;
+  }
+}
+
+.diseaseDetailContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 240px;
+
+  text {
+    font-size: 16px;
+    text-align: left;
+    color: #e4e4e4;
+    margin: 3px 0;
+  }
+}
+
+.medicalCheckupContainer {
+  width: 100%;
+  height: 240px;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr;
+}
+
+.medicalCheckup-column {
+  display: flex;
+  flex-direction: column;
+  text {
+    font-size: 16px;
+    text-align: left;
+    color: #e4e4e4;
+    margin: 3px 0;
+  }
+}
+
+.medicalCheckup-column-title {
+  font-size: 21px;
+  color: #e4e4e4;
+  text-align: left;
+  margin: 20px 0 15px 0;
+}
