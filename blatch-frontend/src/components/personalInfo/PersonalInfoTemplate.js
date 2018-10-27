@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { observer } from 'mobx-react';
+import classNames from 'classnames';
 import Button from 'components/common/Button';
 import * as EmrAPI from 'lib/api/emr';
 import './PersonalInfoTemplate.scss';
@@ -22,16 +24,20 @@ const InfoSummaryHeader = ({ data }) => {
   );
 };
 
-const InfoSummary = ({ summaryData }) => {
+const InfoSummary = ({ activeIndex, index, summaryData, handleClick }) => {
   return (
-    <div className="infoSummary">
-      <text>{summaryData.surgeryNumber}</text>
+    <div
+      className={classNames('infoSummary', {
+        active: activeIndex === index
+      })}
+      onClick={handleClick}
+    >
+      <text>{summaryData.patient_no}</text>
       <text>
-        {summaryData.patientName}({summaryData.patientBirth})
+        {summaryData.name}({summaryData.birth})
       </text>
       <text>
-        REH/
-        {summaryData.surgeonName}
+        {summaryData.surgery_type}/{summaryData.disease}
       </text>
     </div>
   );
@@ -42,59 +48,76 @@ const dummySummaryHeader = {
   hospital: 'Ajou University Hospital'
 };
 
-const dummySummary = {
-  surgeryNumber: 28695847,
-  patientName: '김민영',
-  patientBirth: '91.07.05',
-  surgeonName: '김상준'
-};
-
+@observer
 class PersonalInfoTemplate extends Component {
+  state = {
+    patientList: [],
+    activePatientIndex: null
+  };
+
+  handleClick = index => {
+    this.setState({
+      ...this.state,
+      activePatientIndex: index
+    });
+  };
+
   componentDidMount() {
-    EmrAPI.getEmr()
-      .then(res => {
-        console.log(res);
-      })
-      .catch(() => {});
+    EmrAPI.getEmr().then(res => {
+      this.setState({
+        patientList: res.data,
+        activePatientIndex: 0
+      });
+    });
   }
 
   render() {
+    const { patientList, activePatientIndex } = this.state;
+    const activePatient = patientList[activePatientIndex];
+
     return (
       <div className="personalInfoContainer">
         <div className="infoSummaryContainer">
           <InfoSummaryHeader data={dummySummaryHeader} />
-          <InfoSummary summaryData={dummySummary} />
-          <InfoSummary summaryData={dummySummary} />
-          <InfoSummary summaryData={dummySummary} />
-          <InfoSummary summaryData={dummySummary} />
-          <InfoSummary summaryData={dummySummary} />
-          <InfoSummary summaryData={dummySummary} />
-          <InfoSummary summaryData={dummySummary} />
-          <InfoSummary summaryData={dummySummary} />
+          {patientList.map((patient, index) => {
+            return (
+              <InfoSummary
+                activeIndex={activePatientIndex}
+                index={index}
+                summaryData={patient}
+                handleClick={() => {
+                  this.handleClick(index);
+                }}
+                key={index}
+              />
+            );
+          })}
         </div>
-        <div className="infoDetailContainer">
-          <InfoDetail
-            className="infoDetail"
-            type={'Disease'}
-            value={'Some value'}
-          />
-          <InfoDetail
-            className="infoDetail"
-            type={'Surgery Type'}
-            value={'Some value'}
-          />
-          <InfoDetail
-            className="infoDetail"
-            type={'Doctor'}
-            value={'Some value'}
-          />
-          <InfoDetail
-            className="infoDetail"
-            type={'Surgery Date'}
-            value={'Some value'}
-          />
-          <Button value={'Next'} />
-        </div>
+        {!!activePatient && (
+          <div className="infoDetailContainer">
+            <InfoDetail
+              className="infoDetail"
+              type={'Disease'}
+              value={activePatient.disease}
+            />
+            <InfoDetail
+              className="infoDetail"
+              type={'Surgery Type'}
+              value={activePatient.surgery_type}
+            />
+            <InfoDetail
+              className="infoDetail"
+              type={'Doctor'}
+              value={activePatient.doctor}
+            />
+            <InfoDetail
+              className="infoDetail"
+              type={'Surgery Date'}
+              value={activePatient.surgery_start}
+            />
+            <Button value={'Next'} />
+          </div>
+        )}
       </div>
     );
   }
