@@ -13,7 +13,9 @@ import {
   PersonalInfo,
   Agreement,
   Search,
-  Check
+  Check,
+  Authentication,
+  Loading
 } from 'pages';
 
 @withRouter
@@ -39,6 +41,8 @@ class App extends Component {
         <Route path="/agreement" component={Agreement} />
         <Route path="/search" component={Search} />
         <Route path="/check" component={Check} />
+        <Route path="/authentication" component={Authentication} />
+        <Route path="/loading" component={Loading} />
         <PrivateRoute path="/counter" component={Counter} />
         {process.env.NODE_ENV === 'development' && <DevTools />}
       </AppTemplate>
