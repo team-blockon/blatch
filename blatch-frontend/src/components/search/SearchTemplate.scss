@@ -53,4 +53,9 @@
 
 .rowContainer-body {
   background-color: #363d50;
+  cursor: pointer;
+}
+
+.rowContainer-body:hover {
+  background-color: #2f3545;
 }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import * as EmrAPI from 'lib/api/emr';
 import moment from 'moment';
 import './SearchTemplate.scss';
@@ -15,23 +16,39 @@ const SearchResultHeader = () => {
   );
 };
 
-const SearchResult = ({ data }) => {
-  const surgeryStart = new Date(data.surgery_start);
-  const surgeryEnd = new Date(data.surgery_end);
+@withRouter
+class SearchResult extends Component {
+  handleRowClick = index => {
+    this.props.history.push({
+      pathname: '/check',
+      state: { activeRow: index }
+    });
+  };
 
-  return (
-    <div className="rowContainer rowContainer-body">
-      <text>{data.patient_no}</text>
-      <text>{data.name}</text>
-      <text>{data.birth}</text>
-      <text>{data.doctor}</text>
-      <text>
-        {moment(surgeryStart).format('(YY-MM-DD) HH:mm')} -
-        {moment(surgeryEnd).format('HH:mm')}
-      </text>
-    </div>
-  );
-};
+  render() {
+    const { data, index } = this.props;
+    const surgeryStart = new Date(data.surgery_start);
+    const surgeryEnd = new Date(data.surgery_end);
+
+    return (
+      <div
+        className="rowContainer rowContainer-body"
+        onClick={() => {
+          this.handleRowClick(index);
+        }}
+      >
+        <text>{data.patient_no}</text>
+        <text>{data.name}</text>
+        <text>{data.birth}</text>
+        <text>{data.doctor}</text>
+        <text>
+          {moment(surgeryStart).format('(YY-MM-DD) HH:mm')} -
+          {moment(surgeryEnd).format('HH:mm')}
+        </text>
+      </div>
+    );
+  }
+}
 
 class SearchTemplate extends Component {
   state = {
@@ -59,7 +76,7 @@ class SearchTemplate extends Component {
         <div className="searchResultContainer">
           <SearchResultHeader />
           {patientList.map((patient, index) => {
-            return <SearchResult data={patient} key={index} />;
+            return <SearchResult data={patient} index={index} key={index} />;
           })}
         </div>
       </div>

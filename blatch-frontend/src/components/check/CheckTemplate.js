@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import Button from 'components/common/Button';
+import * as EmrAPI from 'lib/api/emr';
 import './CheckTemplate.scss';
 
 const CheckHeader = ({ isVerified }) => {
@@ -10,14 +12,6 @@ const CheckHeader = ({ isVerified }) => {
       </text>
     </div>
   );
-};
-
-const dummyPatient = {
-  patientNumber: 28695847,
-  name: '김민영',
-  birth: '91.07.06',
-  disease: 'Shoulder Pain',
-  doctor: 'REH/김상준'
 };
 
 const CheckVideo = () => {
@@ -32,28 +26,23 @@ const PatientInfoSummary = ({ data }) => {
   return (
     <div className="patientInfoSummaryContainer">
       <text>
-        [Patient Number]
-        {data.patientNumber}
+        [Patient Number] {data.patient_no}
         <br />
       </text>
       <text>
-        [Name]
-        {data.name}
+        [Name] {data.name}
         <br />
       </text>
       <text>
-        [Birth]
-        {data.birth}
+        [Birth] {data.birth}
         <br />
       </text>
       <text>
-        [Disease]
-        {data.disease}
+        [Disease] {data.disease}
         <br />
       </text>
       <text>
-        [Doctor]
-        {data.doctor}
+        [Doctor] {data.doctor}
         <br />
       </text>
     </div>
@@ -146,25 +135,48 @@ const MedicalCheckup = ({ data }) => {
   );
 };
 
-const CheckTemplate = () => {
-  return (
-    <div className="checkContainer">
-      <CheckHeader isVerified />
-      <div className="checkBody">
-        <div className="checkBody-column">
-          <CheckVideo />
-          <PatientInfoSummary data={dummyPatient} />
+@withRouter
+class CheckTemplate extends Component {
+  state = {
+    activePatient: []
+  };
+
+  async componentDidMount() {
+    const locationState = this.props.location.state;
+    if (!localStorage) return;
+
+    const activeRow = locationState.activeRow;
+
+    EmrAPI.getEmr().then(res => {
+      this.setState({
+        ...this.state,
+        activePatient: res.data[activeRow]
+      });
+    });
+  }
+
+  render() {
+    const { activePatient } = this.state;
+
+    return (
+      <div className="checkContainer">
+        <CheckHeader isVerified />
+        <div className="checkBody">
+          <div className="checkBody-column">
+            <CheckVideo />
+            {!!activePatient && <PatientInfoSummary data={activePatient} />}
+          </div>
+          <div className="checkBody-column">
+            <DiseaseDetail data={dummyDisease} />
+            <MedicalCheckup data={dummyCheckup} />
+          </div>
         </div>
-        <div className="checkBody-column">
-          <DiseaseDetail data={dummyDisease} />
-          <MedicalCheckup data={dummyCheckup} />
+        <div className="buttonContainer">
+          <Button value={'Download'} />
         </div>
       </div>
-      <div className="buttonContainer">
-        <Button value={'Download'} />
-      </div>
-    </div>
-  );
-};
+    );
+  }
+}
 
 export default CheckTemplate;
