@@ -10,8 +10,10 @@ contract Blatch {
         uint video_no;      // video 고유번호
         bytes32 doctor;     // 집도의 성
         bytes32 patient;    // 환자 성
-        string surgeryName; //수술명
-        string surgeryDate; //수술 날짜
+        string surgeryName; // 수술명
+        string surgeryDate; // 수술 날짜
+        string savePath;    // video 저장 위치
+        string saveDate;    // video 저장 일시
     }
 
     mapping(uint => Video) public videos;
