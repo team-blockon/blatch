@@ -59,7 +59,12 @@ label[for="file"] {
   display: none;
 }
 
-.keystore {
-  color: #fff;
+.form-control {
   text-align: center;
+  .keystore {
+    color: #fff;
+    text-align: left;
+    margin-top: -1rem;
+    margin-bottom: 1rem;
+  }
 }

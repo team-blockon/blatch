@@ -102,8 +102,10 @@ class AuthenticationTemplate extends Component {
               placeholder={'wallet password'}
               onChange={this.handleChange}
             />
-            <div className="keystore">{keystoreMsg}</div>
-            <Button value={'Authentication'} type="submit" />
+            <div className="form-control">
+              <div className="keystore">{keystoreMsg}</div>
+              <Button value={'Authentication'} type="submit" />
+            </div>
           </form>
         </div>
       </div>
