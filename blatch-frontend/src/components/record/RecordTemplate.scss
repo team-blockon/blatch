@@ -29,9 +29,12 @@
   color: #e4e4e4;
   padding: 14px;
   padding-left: 46px;
-  text {
-    font-size: 18px;
+  font-size: 18px;
+  a {
+    color: inherit;
+    text-decoration: none;
   }
+  &.active,
   &:hover {
     background-color: #2f3545;
   }
@@ -76,6 +79,12 @@
     div {
       font-size: 10px;
       color: #e4e4e4;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .status img {
+      width: 20px;
     }
   }
   video {

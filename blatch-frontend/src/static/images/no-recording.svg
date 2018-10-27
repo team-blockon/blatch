@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.095 15.095">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: rgba(255,255,255,0.15);
+      }
+
+      .cls-2 {
+        fill: rgba(255,255,255,0.25);
+      }
+    </style>
+  </defs>
+  <g id="그룹_421" data-name="그룹 421" transform="translate(5021 82)">
+    <circle id="타원_55" data-name="타원 55" class="cls-1" cx="7.547" cy="7.547" r="7.547" transform="translate(-5021 -82)"/>
+    <circle id="타원_56" data-name="타원 56" class="cls-2" cx="4.547" cy="4.547" r="4.547" transform="translate(-5018 -79)"/>
+  </g>
+</svg>

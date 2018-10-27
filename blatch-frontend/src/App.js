@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { withRouter, Route } from 'react-router-dom';
 import { inject } from 'mobx-react';
 import AppTemplate from 'components/base/AppTemplate';
 import PrivateRoute from 'components/common/PrivateRoute';
@@ -16,6 +16,7 @@ import {
   Check
 } from 'pages';
 
+@withRouter
 @inject(stores => ({
   loadWallet: stores.wallet.loadWallet
 }))

@@ -1,17 +1,26 @@
 import React, { Component } from 'react';
-import { observer } from 'mobx-react';
+import { Link } from 'react-router-dom';
+import { inject, observer } from 'mobx-react';
 import { captureUserMedia } from 'lib/utils';
 import RecordRTC from 'recordrtc';
 import * as RecordAPI from 'lib/api/record';
 import './RecordTemplate.scss';
 import Logo from 'static/images/logo.svg';
+import Recording from 'static/images/recording.svg';
+import NoRecording from 'static/images/no-recording.svg';
 
 const SmallVideo = ({ location, isActive, videoSrc }) => {
   return (
     <div className="videoContainer">
       <div className="videoHeader">
         <div>{location}</div>
-        <div>{isActive ? '빨간색' : '초록색'}</div>
+        <div className="status">
+          {isActive ? (
+            <img src={Recording} alt="recording" />
+          ) : (
+            <img src={NoRecording} alt="no-recording" />
+          )}
+        </div>
       </div>
       <video src={videoSrc} autoPlay />
     </div>
@@ -26,6 +35,7 @@ const MainVideo = ({ video }) => {
   );
 };
 
+@inject('loading')
 @observer
 class RecordTemplate extends Component {
   state = {
@@ -52,10 +62,12 @@ class RecordTemplate extends Component {
 
     setTimeout(() => {
       this.stopRecord();
-    }, 4000);
+    }, 1 * 60 * 1000);
   }
 
   stopRecord() {
+    const { loading } = this.props;
+
     this.recordVideo.stopRecording(() => {
       const blob = this.recordVideo.getBlob();
 
@@ -63,8 +75,10 @@ class RecordTemplate extends Component {
       const reader = new FileReader();
       reader.readAsDataURL(blob);
 
-      reader.onload = function() {
-        RecordAPI.saveVideo(reader.result);
+      reader.onload = async () => {
+        loading.startLoading();
+        await RecordAPI.saveVideo(reader.result);
+        loading.stopLoading();
       };
     });
   }
@@ -83,22 +97,18 @@ class RecordTemplate extends Component {
           </div>
           <div className="sideBar-menuContainer">
             <div className="sideBar-menu">
-              <text>New Record</text>
+              <Link to="/personal-info">New Record</Link>
             </div>
-            <div className="sideBar-menu">
-              <text>Record</text>
+            <div className="sideBar-menu active">
+              <Link to="/">Record</Link>
             </div>
-            <div className="sideBar-menu">
-              <text>Authentication</text>
-            </div>
+            <div className="sideBar-menu">Authentication</div>
           </div>
         </div>
         <div className="recordDashBoardSizer">
           <div className="recordDashBoard">
             <div className="boardWithTitle">
-              <div className="recordDashBoard-title">
-                <text>Record</text>
-              </div>
+              <div className="recordDashBoard-title">Record</div>
               <SmallVideo
                 location={'수술실'}
                 isActive

@@ -6,12 +6,13 @@ exports.saveVideo = (req, res) => {
   fs.writeFile(
     `uploads/${new Date().valueOf()}.webm`,
     new Buffer(base64, 'base64'),
-    (err, res) => {
+    err => {
       if (err) {
         console.error(err);
         return;
       }
       console.log('video saved');
+      res.status(200).send();
     }
   );
 };

@@ -8,8 +8,8 @@ class Loading extends Component {
       <Box className="Loading" align="center" justify="center">
         <div className="loader" />
         <div className="loadingText">
-          <div className="title">잠시만 기다려 주세요.</div>
-          데이터를 안전하게 저장하는 중입니다.
+          <div className="title">Wait a second...</div>
+          We are uploading the file
         </div>
       </Box>
     );
