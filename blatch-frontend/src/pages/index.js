@@ -7,3 +7,4 @@ export { default as Agreement } from './Agreement';
 export { default as Search } from './Search';
 export { default as Check } from './Check';
 export { default as Authentication } from './Authentication';
+export { default as Loading } from './Loading';
