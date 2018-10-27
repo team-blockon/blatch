@@ -13,7 +13,18 @@ const InfoDetail = ({ type, value }) => {
     </div>
   );
 };
-
+const InfoDivide = ({ type, value1, value2 }) => {
+  return (
+      <div className="infoDetail">
+          <text className="infoDetail_type">{type}</text>
+          <div className="infoDivide">
+            <text className="infoDivide_value1">{value1}</text>
+              <div className="infoDivide_center"> ~ </div>
+            <text className="infoDivide_value2">{value2}</text>
+          </div>
+      </div>
+  );
+};
 const InfoSummaryHeader = ({ data }) => {
   return (
     <div className="infoSummary infoSummaryHeader">
@@ -110,10 +121,11 @@ class PersonalInfoTemplate extends Component {
               type={'Doctor'}
               value={activePatient.doctor}
             />
-            <InfoDetail
+            <InfoDivide
               className="infoDetail"
               type={'Surgery Date'}
-              value={activePatient.surgery_start}
+              value1={activePatient.surgery_start}
+              value2={activePatient.surgery_end}
             />
             <Button value={'Next'} />
           </div>
