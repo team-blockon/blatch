@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import Button from 'components/common/Button';
 import * as EmrAPI from 'lib/api/emr';
 import MenuIcon from 'static/images/menuicon.svg';
+import CloseButton from 'components/common/CloseButton';
 import './PersonalInfoTemplate.scss';
 
 const InfoDetail = ({ type, value }) => {
@@ -95,6 +96,7 @@ class PersonalInfoTemplate extends Component {
 
     return (
       <div className="personalInfoContainer">
+        <CloseButton />
         <div className="infoSummaryContainer">
           <InfoSummaryHeader data={dummySummaryHeader} />
           {patientList.map((patient, index) => {

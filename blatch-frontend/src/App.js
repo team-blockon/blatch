@@ -3,7 +3,6 @@ import { withRouter, Route } from 'react-router-dom';
 import { inject } from 'mobx-react';
 import AppTemplate from 'components/base/AppTemplate';
 import PrivateRoute from 'components/common/PrivateRoute';
-import DevTools from 'mobx-react-devtools';
 
 import {
   Record,
@@ -44,7 +43,6 @@ class App extends Component {
         <Route path="/authentication" component={Authentication} />
         <Route path="/loading" component={Loading} />
         <PrivateRoute path="/counter" component={Counter} />
-        {process.env.NODE_ENV === 'development' && <DevTools />}
       </AppTemplate>
     );
   }

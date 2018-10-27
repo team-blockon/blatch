@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import Button from 'components/common/Button';
 import * as EmrAPI from 'lib/api/emr';
+import CloseButton from 'components/common/CloseButton';
 import './CheckTemplate.scss';
 
 const CheckHeader = ({ isVerified }) => {
@@ -160,6 +161,7 @@ class CheckTemplate extends Component {
 
     return (
       <div className="checkContainer">
+        <CloseButton />
         <CheckHeader isVerified />
         <div className="checkBody">
           <div className="checkBody-column">

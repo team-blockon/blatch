@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import * as EmrAPI from 'lib/api/emr';
 import moment from 'moment';
+import BackButton from 'components/common/BackButton';
 import './SearchTemplate.scss';
 
 const SearchResultHeader = () => {
@@ -68,6 +69,7 @@ class SearchTemplate extends Component {
 
     return (
       <div className="searchContainer">
+        <BackButton />
         <input
           className="searchBar"
           type={'text'}
