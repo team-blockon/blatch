@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Button from 'components/common/Button';
+import * as EmrAPI from 'lib/api/emr';
 import './PersonalInfoTemplate.scss';
 
 const InfoDetail = ({ type, value }) => {
@@ -48,45 +49,55 @@ const dummySummary = {
   surgeonName: '김상준'
 };
 
-const PersonalInfoTemplate = () => {
-  return (
-    <div className="personalInfoContainer">
-      <div className="infoSummaryContainer">
-        <InfoSummaryHeader data={dummySummaryHeader} />
-        <InfoSummary summaryData={dummySummary} />
-        <InfoSummary summaryData={dummySummary} />
-        <InfoSummary summaryData={dummySummary} />
-        <InfoSummary summaryData={dummySummary} />
-        <InfoSummary summaryData={dummySummary} />
-        <InfoSummary summaryData={dummySummary} />
-        <InfoSummary summaryData={dummySummary} />
-        <InfoSummary summaryData={dummySummary} />
+class PersonalInfoTemplate extends Component {
+  componentDidMount() {
+    EmrAPI.getEmr()
+      .then(res => {
+        console.log(res);
+      })
+      .catch(() => {});
+  }
+
+  render() {
+    return (
+      <div className="personalInfoContainer">
+        <div className="infoSummaryContainer">
+          <InfoSummaryHeader data={dummySummaryHeader} />
+          <InfoSummary summaryData={dummySummary} />
+          <InfoSummary summaryData={dummySummary} />
+          <InfoSummary summaryData={dummySummary} />
+          <InfoSummary summaryData={dummySummary} />
+          <InfoSummary summaryData={dummySummary} />
+          <InfoSummary summaryData={dummySummary} />
+          <InfoSummary summaryData={dummySummary} />
+          <InfoSummary summaryData={dummySummary} />
+        </div>
+        <div className="infoDetailContainer">
+          <InfoDetail
+            className="infoDetail"
+            type={'Disease'}
+            value={'Some value'}
+          />
+          <InfoDetail
+            className="infoDetail"
+            type={'Surgery Type'}
+            value={'Some value'}
+          />
+          <InfoDetail
+            className="infoDetail"
+            type={'Doctor'}
+            value={'Some value'}
+          />
+          <InfoDetail
+            className="infoDetail"
+            type={'Surgery Date'}
+            value={'Some value'}
+          />
+          <Button value={'Next'} />
+        </div>
       </div>
-      <div className="infoDetailContainer">
-        <InfoDetail
-          className="infoDetail"
-          type={'Disease'}
-          value={'Some value'}
-        />
-        <InfoDetail
-          className="infoDetail"
-          type={'Surgery Type'}
-          value={'Some value'}
-        />
-        <InfoDetail
-          className="infoDetail"
-          type={'Doctor'}
-          value={'Some value'}
-        />
-        <InfoDetail
-          className="infoDetail"
-          type={'Surgery Date'}
-          value={'Some value'}
-        />
-        <Button value={'Next'} />
-      </div>
-    </div>
-  );
-};
+    );
+  }
+}
 
 export default PersonalInfoTemplate;

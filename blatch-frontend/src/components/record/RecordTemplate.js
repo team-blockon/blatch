@@ -4,7 +4,6 @@ import './RecordTemplate.scss';
 import Logo from 'static/images/logo.svg';
 
 const SmallVideo = ({ location, isActive, videoSrc }) => {
-  console.log(videoSrc);
   return (
     <div className="videoContainer">
       <div className="videoHeader">
