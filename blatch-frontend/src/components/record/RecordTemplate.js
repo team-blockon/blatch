@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { observer } from 'mobx-react';
+import { captureUserMedia } from 'lib/utils';
+import RecordRTC from 'recordrtc';
+import * as RecordAPI from 'lib/api/record';
 import './RecordTemplate.scss';
 import Logo from 'static/images/logo.svg';
 
@@ -35,18 +38,40 @@ class RecordTemplate extends Component {
     });
   };
 
-  componentDidMount() {
-    const mediaOptions = { video: true };
-
-    navigator.getUserMedia =
-      navigator.getUserMedia ||
-      navigator.webkitGetUserMedia ||
-      navigator.mozGetUserMedia ||
-      navigator.msGetUserMedia;
-
-    navigator.getUserMedia(mediaOptions, this.handleVideo, e => {
-      console.log(e);
+  requestUserMedia() {
+    captureUserMedia(stream => {
+      this.setState({ videoSrc: window.URL.createObjectURL(stream) });
     });
+  }
+
+  startRecord() {
+    captureUserMedia(stream => {
+      this.recordVideo = RecordRTC(stream, { type: 'video' });
+      this.recordVideo.startRecording();
+    });
+
+    setTimeout(() => {
+      this.stopRecord();
+    }, 4000);
+  }
+
+  stopRecord() {
+    this.recordVideo.stopRecording(() => {
+      const blob = this.recordVideo.getBlob();
+
+      // convert BLOB to base64
+      const reader = new FileReader();
+      reader.readAsDataURL(blob);
+
+      reader.onload = function() {
+        RecordAPI.saveVideo(reader.result);
+      };
+    });
+  }
+
+  componentDidMount() {
+    this.requestUserMedia();
+    this.startRecord();
   }
 
   render() {
