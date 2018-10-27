@@ -14,16 +14,12 @@ const abi = [
         type: 'string'
       },
       {
-        name: 'video_no',
-        type: 'uint256'
-      },
-      {
         name: 'doctor',
-        type: 'bytes32'
+        type: 'string'
       },
       {
         name: 'patient',
-        type: 'bytes32'
+        type: 'string'
       },
       {
         name: 'surgeryName',
@@ -31,6 +27,14 @@ const abi = [
       },
       {
         name: 'surgeryDate',
+        type: 'string'
+      },
+      {
+        name: 'savePath',
+        type: 'string'
+      },
+      {
+        name: 'saveDate',
         type: 'string'
       }
     ],
@@ -52,34 +56,12 @@ const abi = [
         type: 'uint256'
       },
       {
-        components: [
-          {
-            name: 'videoHash',
-            type: 'string'
-          },
-          {
-            name: 'video_no',
-            type: 'uint256'
-          },
-          {
-            name: 'doctor',
-            type: 'bytes32'
-          },
-          {
-            name: 'patient',
-            type: 'bytes32'
-          },
-          {
-            name: 'surgeryName',
-            type: 'string'
-          },
-          {
-            name: 'surgeryDate',
-            type: 'string'
-          }
-        ],
-        name: 'data',
-        type: 'tuple'
+        name: 'videoHash',
+        type: 'string'
+      },
+      {
+        name: 'savePath',
+        type: 'string'
       }
     ],
     name: 'setVideo',
@@ -105,16 +87,12 @@ const abi = [
             type: 'string'
           },
           {
-            name: 'video_no',
-            type: 'uint256'
-          },
-          {
             name: 'doctor',
-            type: 'bytes32'
+            type: 'string'
           },
           {
             name: 'patient',
-            type: 'bytes32'
+            type: 'string'
           },
           {
             name: 'surgeryName',
@@ -122,6 +100,14 @@ const abi = [
           },
           {
             name: 'surgeryDate',
+            type: 'string'
+          },
+          {
+            name: 'savePath',
+            type: 'string'
+          },
+          {
+            name: 'saveDate',
             type: 'string'
           }
         ],

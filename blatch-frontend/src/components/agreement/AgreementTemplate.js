@@ -4,6 +4,7 @@ import Button from 'components/common/Button';
 import DisabledButton from 'components/common/DisabledButton';
 import CheckBox from 'components/common/CheckBox';
 import './AgreementTemplate.scss';
+import { inject } from 'mobx-react';
 
 const AgreementHeader = () => {
   return (
@@ -78,6 +79,7 @@ class AgreementBody extends Component {
 }
 
 @withRouter
+@inject('blatch')
 class AgreementTemplate extends Component {
   state = {
     activeType: null
@@ -90,6 +92,7 @@ class AgreementTemplate extends Component {
   };
 
   handleClick = () => {
+    this.props.blatch.agreeRecord();
     this.props.history.push('/');
   };
 

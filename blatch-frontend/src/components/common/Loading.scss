@@ -4,7 +4,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #fff;
+  background-color: #2f3545;
 
   .loader,
   .loader:before,
@@ -12,7 +12,7 @@
     border-radius: 50%;
   }
   .loader {
-    color: #865cd6;
+    color: #4b9cd2;
     font-size: 11px;
     text-indent: -99999em;
     margin: 55px auto;
@@ -32,7 +32,7 @@
   .loader:before {
     width: 5.2em;
     height: 10.2em;
-    background: #fff;
+    background: #2f3545;
     border-radius: 10.2em 0 0 10.2em;
     top: -0.1em;
     left: -0.1em;
@@ -44,7 +44,7 @@
   .loader:after {
     width: 5.2em;
     height: 10.2em;
-    background: #fff;
+    background: #2f3545;
     border-radius: 0 10.2em 10.2em 0;
     top: -0.1em;
     left: 5.1em;
@@ -76,6 +76,7 @@
 
   .loadingText {
     text-align: center;
+    color: #fff;
 
     .title {
       font-weight: 500;

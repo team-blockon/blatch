@@ -144,7 +144,7 @@ class CheckTemplate extends Component {
 
   async componentDidMount() {
     const locationState = this.props.location.state;
-    if (!localStorage) return;
+    if (!locationState) return;
 
     const activeRow = locationState.activeRow;
 

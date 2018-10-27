@@ -19,10 +19,8 @@ exports.saveVideo = (req, res) => {
     const digest = hash.digest('hex');
     console.log('sha256 digest:', digest);
 
-    Record.create(filename, digest);
-
-    res.status(200).send({
-      digest
+    Record.create(filename, digest).then(record => {
+      res.json(record);
     });
   });
 };

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import { observer } from 'mobx-react';
+import { observer, inject } from 'mobx-react';
 import classNames from 'classnames';
 import Button from 'components/common/Button';
 import * as EmrAPI from 'lib/api/emr';
@@ -64,6 +64,7 @@ const dummySummaryHeader = {
 };
 
 @withRouter
+@inject('blatch')
 @observer
 class PersonalInfoTemplate extends Component {
   state = {
@@ -79,6 +80,8 @@ class PersonalInfoTemplate extends Component {
   };
 
   handleNext = () => {
+    const { patientList, activePatientIndex } = this.state;
+    this.props.blatch.setPatient(patientList[activePatientIndex]);
     this.props.history.push('/agreement');
   };
 

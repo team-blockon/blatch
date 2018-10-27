@@ -6,13 +6,14 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 import { Provider } from 'mobx-react';
-import { LoadingStore, WalletStore } from './stores';
+import { LoadingStore, WalletStore, BlatchStore } from './stores';
 
 const loading = new LoadingStore();
 const wallet = new WalletStore();
+const blatch = new BlatchStore();
 
 ReactDOM.render(
-  <Provider loading={loading} wallet={wallet}>
+  <Provider loading={loading} wallet={wallet} blatch={blatch}>
     <BrowserRouter>
       <App />
     </BrowserRouter>

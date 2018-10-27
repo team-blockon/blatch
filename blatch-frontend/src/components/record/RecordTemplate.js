@@ -8,6 +8,7 @@ import './RecordTemplate.scss';
 import Logo from 'static/images/logo.svg';
 import Recording from 'static/images/recording.svg';
 import NoRecording from 'static/images/no-recording.svg';
+import * as CaverBlatchAPI from 'lib/caver/blatch';
 
 const SmallVideo = ({ location, isActive, videoSrc }) => {
   return (
@@ -22,7 +23,11 @@ const SmallVideo = ({ location, isActive, videoSrc }) => {
           )}
         </div>
       </div>
-      <video src={videoSrc} autoPlay />
+      {!!videoSrc ? (
+        <video src={videoSrc} autoPlay />
+      ) : (
+        <div className="video" />
+      )}
     </div>
   );
 };
@@ -35,10 +40,11 @@ const MainVideo = ({ video }) => {
   );
 };
 
-@inject('loading')
+@inject('loading', 'blatch')
 @observer
 class RecordTemplate extends Component {
   state = {
+    firstRoomIsActive: false,
     videoSrc: null
   };
 
@@ -62,12 +68,13 @@ class RecordTemplate extends Component {
 
     setTimeout(() => {
       this.stopRecord();
-    }, 1 * 60 * 1000);
+    }, 1 * 30 * 1000); // 2분 30초
   }
 
   stopRecord() {
     if (!this.recordVideo) return;
     const { loading } = this.props;
+    const { patient } = this.props.blatch;
 
     this.recordVideo.stopRecording(() => {
       const blob = this.recordVideo.getBlob();
@@ -78,18 +85,40 @@ class RecordTemplate extends Component {
 
       reader.onload = async () => {
         loading.startLoading();
-        await RecordAPI.saveVideo(reader.result);
-        loading.stopLoading();
+
+        const { data } = await RecordAPI.saveVideo(reader.result);
+        console.log(data);
+        CaverBlatchAPI.saveVideo(1, data.videoHash, data.videoPath);
+
+        setTimeout(() => {
+          loading.stopLoading();
+        }, 5000);
       };
     });
+
+    this.setState({
+      firstRoomIsActive: false,
+      videoSrc: null
+    });
+
+    this.props.blatch.initialize();
   }
 
   componentDidMount() {
-    this.requestUserMedia();
-    this.startRecord();
+    const { patient, isAgree } = this.props.blatch;
+    if (!!patient && isAgree) {
+      this.requestUserMedia();
+      this.startRecord();
+      this.setState({
+        ...this.state,
+        firstRoomIsActive: true
+      });
+    }
   }
 
   render() {
+    const { firstRoomIsActive, videoSrc } = this.state;
+
     return (
       <div className="recordContainer">
         <div className="sideBar">
@@ -112,10 +141,11 @@ class RecordTemplate extends Component {
           <div className="recordDashBoard">
             <div className="boardWithTitle">
               <div className="recordDashBoard-title">Record</div>
+
               <SmallVideo
                 location={'수술실'}
-                isActive
-                videoSrc={this.state.videoSrc}
+                isActive={firstRoomIsActive ? true : undefined}
+                videoSrc={videoSrc}
               />
             </div>
             <MainVideo />
