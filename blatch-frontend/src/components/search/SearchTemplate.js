@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom';
 import * as EmrAPI from 'lib/api/emr';
 import moment from 'moment';
 import BackButton from 'components/common/BackButton';
+import SearchIcon from 'static/images/icon/search.svg';
 import './SearchTemplate.scss';
 
 const SearchResultHeader = () => {
@@ -70,11 +71,14 @@ class SearchTemplate extends Component {
     return (
       <div className="searchContainer">
         <BackButton />
-        <input
-          className="searchBar"
-          type={'text'}
-          placeholder={'Record search by name, birth'}
-        />
+        <div className="input-addon">
+          <img src={SearchIcon} alt="search" />
+          <input
+            className="searchBar"
+            type={'text'}
+            placeholder={'Record search by name, birth'}
+          />
+        </div>
         <div className="searchResultContainer">
           <SearchResultHeader />
           {patientList.map((patient, index) => {

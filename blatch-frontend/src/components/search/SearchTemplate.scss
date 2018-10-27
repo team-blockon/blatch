@@ -8,21 +8,31 @@
   align-items: center;
 }
 
-.searchBar {
-  width: 440px;
-  height: 42px;
-  border-radius: 9px;
-  border: solid 2px rgba(228, 228, 228, 0.62);
-  background-color: #363d50;
-  text-align: center;
-  vertical-align: middle;
-  line-height: 42px;
-  font-size: 18px;
-  color: #e4e4e4;
-  margin-bottom: 15px;
-
-  &::placeholder {
+.input-addon {
+  position: relative;
+  img {
+    width: 17px;
+    position: absolute;
+    left: 1rem;
+    top: calc(50% - 17px);
+  }
+  .searchBar {
+    width: 440px;
+    height: 42px;
+    border-radius: 9px;
+    border: solid 2px rgba(228, 228, 228, 0.62);
+    background-color: #363d50;
+    vertical-align: middle;
+    line-height: 42px;
+    font-size: 18px;
     color: #e4e4e4;
+    margin-bottom: 15px;
+    padding: 0 0.5rem;
+    padding-left: 2.5rem;
+
+    &::placeholder {
+      color: #e4e4e4;
+    }
   }
 }
 

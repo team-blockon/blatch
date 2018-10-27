@@ -66,6 +66,7 @@ class RecordTemplate extends Component {
   }
 
   stopRecord() {
+    if (!this.recordVideo) return;
     const { loading } = this.props;
 
     this.recordVideo.stopRecording(() => {
