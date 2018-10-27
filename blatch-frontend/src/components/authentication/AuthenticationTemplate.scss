@@ -28,13 +28,14 @@
   margin-bottom: 35px;
 }
 
-.authInput {
+.authInput,
+label[for="file"] {
   width: 340px;
   height: 42px;
   border-radius: 9px;
   border: solid 2px rgba(228, 228, 228, 0.62);
   background-color: #363d50;
-  text-align: center;
+  padding-left: 1rem;
   vertical-align: middle;
   line-height: 42px;
   font-size: 18px;
@@ -44,4 +45,12 @@
   &::placeholder {
     color: #e4e4e4;
   }
+}
+
+label[for="file"] {
+  cursor: pointer;
+}
+
+.authInput[type="file"] {
+  display: none;
 }

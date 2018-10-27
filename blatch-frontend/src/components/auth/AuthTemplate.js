@@ -5,7 +5,6 @@ import * as CaverWalletAPI from 'lib/caver/wallet';
 import Login from './Login';
 
 @inject(stores => ({
-  walletInstance: stores.wallet.walletInstance,
   integrateWallet: stores.wallet.integrateWallet
 }))
 @observer

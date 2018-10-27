@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
+import * as EmrAPI from 'lib/api/emr';
+import moment from 'moment';
 import './SearchTemplate.scss';
 
 const SearchResultHeader = () => {
@@ -14,43 +16,55 @@ const SearchResultHeader = () => {
 };
 
 const SearchResult = ({ data }) => {
+  const surgeryStart = new Date(data.surgery_start);
+  const surgeryEnd = new Date(data.surgery_end);
+
   return (
     <div className="rowContainer rowContainer-body">
-      <text>{data.no}</text>
-      <text>{data.patientName}</text>
+      <text>{data.patient_no}</text>
+      <text>{data.name}</text>
       <text>{data.birth}</text>
       <text>{data.doctor}</text>
-      <text>{data.recordTime}</text>
+      <text>
+        {moment(surgeryStart).format('(YY-MM-DD) HH:mm')} -
+        {moment(surgeryEnd).format('HH:mm')}
+      </text>
     </div>
   );
 };
 
-const dummyResult = {
-  no: 28695847,
-  patientName: '김민영',
-  birth: '91.07.06',
-  doctor: 'REH/김상준',
-  recordTime: '(18.06.07)17:05 - 19:07'
-};
+class SearchTemplate extends Component {
+  state = {
+    patientList: []
+  };
 
-const SearchTemplate = () => {
-  return (
-    <div className="searchContainer">
-      <input
-        className="searchBar"
-        type={'text'}
-        placeholder={'Record search by name, birth'}
-      />
-      <div className="searchResultContainer">
-        <SearchResultHeader />
-        <SearchResult data={dummyResult} />
-        <SearchResult data={dummyResult} />
-        <SearchResult data={dummyResult} />
-        <SearchResult data={dummyResult} />
-        <SearchResult data={dummyResult} />
+  componentDidMount() {
+    EmrAPI.getEmr().then(res => {
+      this.setState({
+        patientList: res.data
+      });
+    });
+  }
+
+  render() {
+    const { patientList } = this.state;
+
+    return (
+      <div className="searchContainer">
+        <input
+          className="searchBar"
+          type={'text'}
+          placeholder={'Record search by name, birth'}
+        />
+        <div className="searchResultContainer">
+          <SearchResultHeader />
+          {patientList.map((patient, index) => {
+            return <SearchResult data={patient} key={index} />;
+          })}
+        </div>
       </div>
-    </div>
-  );
-};
+    );
+  }
+}
 
 export default SearchTemplate;

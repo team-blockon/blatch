@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import { observer } from 'mobx-react';
 import classNames from 'classnames';
 import Button from 'components/common/Button';
 import * as EmrAPI from 'lib/api/emr';
+import MenuIcon from 'static/images/menuicon.svg';
 import './PersonalInfoTemplate.scss';
 
 const InfoDetail = ({ type, value }) => {
@@ -15,20 +17,20 @@ const InfoDetail = ({ type, value }) => {
 };
 const InfoDivide = ({ type, value1, value2 }) => {
   return (
-      <div className="infoDetail">
-          <text className="infoDetail_type">{type}</text>
-          <div className="infoDivide">
-            <text className="infoDivide_value1">{value1}</text>
-              <div className="infoDivide_center"> ~ </div>
-            <text className="infoDivide_value2">{value2}</text>
-          </div>
+    <div className="infoDetail">
+      <text className="infoDetail_type">{type}</text>
+      <div className="infoDivide">
+        <text className="infoDivide_value1">{value1}</text>
+        <div className="infoDivide_center"> ~ </div>
+        <text className="infoDivide_value2">{value2}</text>
       </div>
+    </div>
   );
 };
 const InfoSummaryHeader = ({ data }) => {
   return (
     <div className="infoSummary infoSummaryHeader">
-      <span>메뉴마크</span>
+      <img className="logo" src={MenuIcon} alt="menu" />
       <text className="infoSummaryHeader_date">{data.date}</text>
       <text className="infoSummaryHeader_hospital">{data.hospital}</text>
     </div>
@@ -59,6 +61,7 @@ const dummySummaryHeader = {
   hospital: 'Ajou University Hospital'
 };
 
+@withRouter
 @observer
 class PersonalInfoTemplate extends Component {
   state = {
@@ -71,6 +74,10 @@ class PersonalInfoTemplate extends Component {
       ...this.state,
       activePatientIndex: index
     });
+  };
+
+  handleNext = () => {
+    this.props.history.push('/');
   };
 
   componentDidMount() {
@@ -127,7 +134,7 @@ class PersonalInfoTemplate extends Component {
               value1={activePatient.surgery_start}
               value2={activePatient.surgery_end}
             />
-            <Button value={'Next'} />
+            <Button value={'Next'} onClick={this.handleNext} />
           </div>
         )}
       </div>

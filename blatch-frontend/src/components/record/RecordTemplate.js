@@ -102,7 +102,9 @@ class RecordTemplate extends Component {
             <div className="sideBar-menu active">
               <Link to="/">Record</Link>
             </div>
-            <div className="sideBar-menu">Authentication</div>
+            <div className="sideBar-menu">
+              <Link to="/authentication">Authentication</Link>
+            </div>
           </div>
         </div>
         <div className="recordDashBoardSizer">

@@ -3,7 +3,12 @@ import './Button.scss';
 
 class Button extends Component {
   render() {
-    return <button className="Button">{this.props.value}</button>;
+    const { value, ...rest } = this.props;
+    return (
+      <button className="Button" {...rest}>
+        {value}
+      </button>
+    );
   }
 }
 

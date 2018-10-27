@@ -40,6 +40,13 @@
 .infoSummaryHeader {
   cursor: initial;
 
+  .logo {
+    width: 18px;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+  }
+
   &.active,
   &:hover {
     background-color: #363d50;
@@ -88,7 +95,8 @@
   line-height: 42px;
 }
 
-.infoDivide_value1, .infoDivide_value2 {
+.infoDivide_value1,
+.infoDivide_value2 {
   width: 200px;
   background-color: #363d50;
   height: 42px;
