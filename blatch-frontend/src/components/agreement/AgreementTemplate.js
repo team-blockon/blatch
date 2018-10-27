@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import Button from 'components/common/Button';
+import DisabledButton from 'components/common/DisabledButton';
 import CheckBox from 'components/common/CheckBox';
 import './AgreementTemplate.scss';
 
@@ -14,18 +15,8 @@ const AgreementHeader = () => {
 };
 
 class AgreementBody extends Component {
-  state = {
-    activeType: null
-  };
-
-  handleAgree = type => {
-    this.setState({
-      activeType: type
-    });
-  };
-
   render() {
-    const { activeType } = this.state;
+    const { handleAgree, activeType } = this.props;
 
     return (
       <div className="agreementBody">
@@ -62,7 +53,9 @@ class AgreementBody extends Component {
         <div className="checkBoxContainers">
           <div className="checkBoxContainer">
             <CheckBox
-              handleAgree={this.handleAgree}
+              handleAgree={() => {
+                handleAgree('agree');
+              }}
               type="agree"
               activeType={activeType}
             />
@@ -70,7 +63,9 @@ class AgreementBody extends Component {
           </div>
           <div className="checkBoxContainer">
             <CheckBox
-              handleAgree={this.handleAgree}
+              handleAgree={() => {
+                handleAgree('disagree');
+              }}
               type="disagree"
               activeType={activeType}
             />
@@ -84,18 +79,37 @@ class AgreementBody extends Component {
 
 @withRouter
 class AgreementTemplate extends Component {
+  state = {
+    activeType: null
+  };
+
+  handleAgree = type => {
+    this.setState({
+      activeType: type
+    });
+  };
+
   handleClick = () => {
     this.props.history.push('/');
   };
 
   render() {
+    const { activeType } = this.state;
+
     return (
       <div className="agreementContainerSizer">
         <div className="agreementContainer">
           <AgreementHeader />
-          <AgreementBody />
+          <AgreementBody
+            handleAgree={this.handleAgree}
+            activeType={this.state.activeType}
+          />
           <div className="buttonContainer">
-            <Button value={'Record'} onClick={this.handleClick} />
+            {activeType !== 'disagree' ? (
+              <Button value={'Record'} onClick={this.handleClick} />
+            ) : (
+              <DisabledButton value={'Record'} />
+            )}
           </div>
         </div>
       </div>

@@ -6,6 +6,7 @@ import Button from 'components/common/Button';
 import * as EmrAPI from 'lib/api/emr';
 import MenuIcon from 'static/images/menuicon.svg';
 import CloseButton from 'components/common/CloseButton';
+import moment from 'moment';
 import './PersonalInfoTemplate.scss';
 
 const InfoDetail = ({ type, value }) => {
@@ -58,7 +59,7 @@ const InfoSummary = ({ activeIndex, index, summaryData, handleClick }) => {
 };
 
 const dummySummaryHeader = {
-  date: 'Sunday, 28 Oct',
+  date: moment(new Date()).format('dddd, DD MMM'),
   hospital: 'Ajou University Hospital'
 };
 
