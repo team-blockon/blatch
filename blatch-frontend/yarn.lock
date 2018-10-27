@@ -8864,6 +8864,11 @@ realpath-native@^1.0.0:
   dependencies:
     util.promisify "^1.0.0"
 
+recordrtc@^5.4.8:
+  version "5.4.8"
+  resolved "https://registry.yarnpkg.com/recordrtc/-/recordrtc-5.4.8.tgz#cb41972613309213aa6ad79cae9afb25d8136089"
+  integrity sha512-tY9I/ntP94Dwd8Vo68i9gSvxGJVcqUJTdZyjn4/oCQcDqGyZaGs7o1No1keVZCb1TPJ9BVG0eIXW9E2jsjoT+w==
+
 recursive-readdir@2.2.2:
   version "2.2.2"
   resolved "https://registry.yarnpkg.com/recursive-readdir/-/recursive-readdir-2.2.2.tgz#9946fb3274e1628de6e36b2f6714953b4845094f"
