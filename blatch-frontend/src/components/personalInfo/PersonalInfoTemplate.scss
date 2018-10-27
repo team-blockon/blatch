@@ -25,13 +25,24 @@
   height: 150px;
   border-bottom: 2px solid;
   border-color: #2f3545;
+  cursor: pointer;
 
-  &:active {
+  &.active,
+  &:hover {
     background-color: #2f3545;
   }
 
   text {
     margin: 5px 50px;
+  }
+}
+
+.infoSummaryHeader {
+  cursor: initial;
+
+  &.active,
+  &:hover {
+    background-color: #363d50;
   }
 }
 
@@ -68,4 +79,6 @@
   height: 42px;
   border-radius: 9px;
   border: solid 1px #e4e4e4;
+  padding: 0 10px;
+  line-height: 42px;
 }
