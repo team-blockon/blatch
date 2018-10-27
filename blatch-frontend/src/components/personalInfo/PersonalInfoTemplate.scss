@@ -69,6 +69,11 @@
   flex-direction: column;
 }
 
+.infoDivide {
+  display: flex;
+  flex-direction: row;
+}
+
 .infoDetail_type {
   margin-bottom: 15px;
 }
@@ -80,5 +85,21 @@
   border-radius: 9px;
   border: solid 1px #e4e4e4;
   padding: 0 10px;
+  line-height: 42px;
+}
+
+.infoDivide_value1, .infoDivide_value2 {
+  width: 200px;
+  background-color: #363d50;
+  height: 42px;
+  border-radius: 9px;
+  border: solid 1px #e4e4e4;
+  padding: 0 10px;
+  line-height: 42px;
+}
+
+.infoDivide_center {
+  width: 40px;
+  text-align: center;
   line-height: 42px;
 }
