@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { observer } from 'mobx-react';
 import { captureUserMedia } from 'lib/utils';
 import RecordRTC from 'recordrtc';
+import * as RecordAPI from 'lib/api/record';
 import './RecordTemplate.scss';
 import Logo from 'static/images/logo.svg';
 
@@ -56,7 +57,15 @@ class RecordTemplate extends Component {
 
   stopRecord() {
     this.recordVideo.stopRecording(() => {
-      console.log(this.recordVideo.getBlob());
+      const blob = this.recordVideo.getBlob();
+
+      // convert BLOB to base64
+      const reader = new FileReader();
+      reader.readAsDataURL(blob);
+
+      reader.onload = function() {
+        RecordAPI.saveVideo(reader.result);
+      };
     });
   }
 
