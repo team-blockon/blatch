@@ -5,8 +5,6 @@ import Loading from 'components/common/Loading';
 import './AppTemplate.scss';
 
 @inject(stores => ({
-  walletInstance: stores.wallet.walletInstance,
-  removeWallet: stores.wallet.removeWallet,
   isLoading: stores.loading.isLoading
 }))
 class AppTemplate extends Component {
@@ -15,7 +13,7 @@ class AppTemplate extends Component {
   };
 
   render() {
-    const { walletInstance, isLoading, children } = this.props;
+    const { isLoading, children } = this.props;
 
     return (
       <Fragment>

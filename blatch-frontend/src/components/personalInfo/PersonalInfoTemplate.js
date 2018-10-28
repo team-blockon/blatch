@@ -4,7 +4,7 @@ import { observer, inject } from 'mobx-react';
 import classNames from 'classnames';
 import Button from 'components/common/Button';
 import * as EmrAPI from 'lib/api/emr';
-import MenuIcon from 'static/images/menuicon.svg';
+import MenuIcon from 'static/images/icon/menu.svg';
 import CloseButton from 'components/common/CloseButton';
 import moment from 'moment';
 import './PersonalInfoTemplate.scss';

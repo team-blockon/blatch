@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { withRouter, Redirect } from 'react-router-dom';
 import Button from 'components/common/Button';
-import LockIcon from 'static/images/lockicon.svg';
-import UnlockIcon from 'static/images/unlockicon.svg';
+import LockIcon from 'static/images/icon/lock.svg';
+import UnlockIcon from 'static/images/icon/unlock.svg';
 import { inject } from 'mobx-react';
 import * as CaverWalletAPI from 'lib/caver/wallet';
 import './AuthenticationTemplate.scss';

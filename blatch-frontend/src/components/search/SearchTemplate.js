@@ -53,17 +53,16 @@ class SearchResult extends Component {
 }
 
 class SearchTemplate extends Component {
-
-    constructor(props){
-        super(props);
-        this.state = {
-            patientList: [],
-            inputValue:'',
-            searchedPatient: []
-        };
-        this.handleChange = this.handleChange.bind(this);
-        this.keyPress = this.keyPress.bind(this);
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      patientList: [],
+      inputValue: '',
+      searchedPatient: []
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.keyPress = this.keyPress.bind(this);
+  }
 
   componentDidMount() {
     EmrAPI.getEmr().then(res => {
@@ -74,23 +73,24 @@ class SearchTemplate extends Component {
   }
 
   handleChange(e) {
-      this.setState({ inputValue: e.target.value})
+    this.setState({ inputValue: e.target.value });
   }
 
-  keyPress(e){
-      if(e.keyCode === 13){
-          console.log("name is " + e.target.value);
-          console.log("input value : " + this.state.inputValue);
-          this.setState({ searchedPatient: this.state.patientList.filter((patient) => {
-              return (patient.name === this.state.inputValue) || (patient.birth === this.state.inputValue)
-            })
-          });
-          //console.log('enter key pressed');
-      }
+  keyPress(e) {
+    if (e.keyCode === 13) {
+      this.setState({
+        searchedPatient: this.state.patientList.filter(patient => {
+          // 이름이나 생년월일이 일치하면 true
+          return (
+            patient.name === this.state.inputValue ||
+            patient.birth === this.state.inputValue
+          );
+        })
+      });
+    }
   }
 
   render() {
-    const { patientList } = this.state;
     const { searchedPatient } = this.state;
     const { inputValue } = this.state;
 

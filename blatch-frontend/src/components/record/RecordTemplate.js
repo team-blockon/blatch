@@ -32,10 +32,14 @@ const SmallVideo = ({ location, isActive, videoSrc }) => {
   );
 };
 
-const MainVideo = ({ video }) => {
+const MainVideo = ({ videoSrc }) => {
   return (
     <div className="mainVideoContainer">
-      <video>비디오</video>
+      {!!videoSrc ? (
+        <video src={videoSrc} autoPlay />
+      ) : (
+        <div className="video" />
+      )}
     </div>
   );
 };
@@ -149,7 +153,7 @@ class RecordTemplate extends Component {
                 videoSrc={videoSrc}
               />
             </div>
-            <MainVideo />
+            <MainVideo videoSrc={videoSrc} />
             <SmallVideo location={'외상수술실'} />
             <SmallVideo location={'외래수술실'} />
             <SmallVideo location={'통원수술실'} />
