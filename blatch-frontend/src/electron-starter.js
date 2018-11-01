@@ -6,7 +6,8 @@ function createWindow() {
     width: 1280,
     height: 800,
     backgroundColor: '#2f3545',
-    frame: false
+    frame: false,
+    resizable: false
   });
 
   const startUrl = process.env.ELECTRON_START_URL;
