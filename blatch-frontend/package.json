@@ -79,7 +79,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "electron": "^3.0.6",
+    "electron": "^7.2.4",
     "eslint-config-react-app": "^3.0.4",
     "eslint-plugin-react": "^7.11.1",
     "foreman": "^3.0.1",
